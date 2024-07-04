@@ -11,16 +11,33 @@ var liTags = function liTags(children) {
   return result;
 };
 var basicData = {
-  name: "John Doe",
-  address: "123 Main St",
-  phone: "555-555-5555"
+  name: {
+    name: "aa",
+    backgroundColor: "red",
+    color: "white"
+  },
+  address: {
+    name: "John Doe",
+    backgroundColor: "black",
+    color: "white"
+  },
+  phone: {
+    name: "555-555-5555",
+    backgroundColor: "white",
+    color: "black"
+  },
+  asd: {
+    name: "asd",
+    backgroundColor: "red",
+    color: "white"
+  }
 };
 var totalElement = function totalElement(object) {
   var result = "";
   for (var key in object) {
     // TypeScript가 key가 BasicData의 키인 것을 알게 함
     var value = object[key];
-    result += liTags(aTags(key, value));
+    result += liTags(aTags(key, value.name));
   }
   return result;
 };
@@ -29,5 +46,14 @@ var mainTarget = document.getElementById("main-target");
 console.log(window.location.hash);
 window.addEventListener("hashchange", function () {
   var hash = window.location.hash;
-  mainTarget.innerHTML = hash.slice(1);
+  console.log(hash.slice(1));
+  var test = basicData[hash.slice(1)];
+  var div = document.createElement("div");
+  div.style.backgroundColor = test.backgroundColor;
+  div.textContent = test.name;
+  div.style.color = test.color;
+  if (mainTarget.hasChildNodes()) {
+    mainTarget.removeChild(mainTarget.childNodes[0]);
+  }
+  mainTarget.appendChild(div);
 });
