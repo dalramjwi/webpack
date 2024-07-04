@@ -7,6 +7,6 @@ const liTags = () => {
 root.innerHTML = `
 <ul>
 <li>
-  <a href="#">Home</a>
+${liTags()}
 </li>
 </ul>`;
