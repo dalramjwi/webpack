@@ -21,7 +21,12 @@ const basicData: BasicData = {
   phone: "555-555-5555",
 };
 const totalElement = (object: BasicData): string => {
-  let result = liTags(aTags(`${object.name}`, object.name));
+  let result = "";
+  for (let key in object) {
+    // TypeScript가 key가 BasicData의 키인 것을 알게 함
+    const value = object[key as keyof BasicData];
+    result += liTags(aTags(key, value));
+  }
   return result;
 };
 root.innerHTML = `

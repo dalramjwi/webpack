@@ -16,7 +16,12 @@ var basicData = {
   phone: "555-555-5555"
 };
 var totalElement = function totalElement(object) {
-  var result = liTags(aTags("".concat(object.name), object.name));
+  var result = "";
+  for (var key in object) {
+    // TypeScript가 key가 BasicData의 키인 것을 알게 함
+    var value = object[key];
+    result += liTags(aTags(key, value));
+  }
   return result;
 };
 root.innerHTML = "\n<ul>\n<li>\n".concat(totalElement(basicData), "</li>\n</li>\n</ul>");
