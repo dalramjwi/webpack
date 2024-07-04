@@ -37,5 +37,7 @@ ${totalElement(basicData)}</li>
 const mainTarget = document.getElementById("main-target")!;
 console.log(window.location.hash);
 window.addEventListener("hashchange", () => {
-  mainTarget.innerHTML = basicData.name;
+  const hash = window.location.hash;
+
+  mainTarget.innerHTML = hash.slice(1);
 });

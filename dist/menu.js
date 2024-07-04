@@ -28,5 +28,6 @@ root.innerHTML = "\n<ul>\n".concat(totalElement(basicData), "</li>\n<main id=\"m
 var mainTarget = document.getElementById("main-target");
 console.log(window.location.hash);
 window.addEventListener("hashchange", function () {
-  mainTarget.innerHTML = basicData.name;
+  var hash = window.location.hash;
+  mainTarget.innerHTML = hash.slice(1);
 });
