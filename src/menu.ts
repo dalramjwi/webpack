@@ -9,13 +9,24 @@ const liTags = (children: string) => {
   let result = `<li>${children}</li>`;
   return result;
 };
-const totalElement = () => {
-  let result = liTags(aTags("sdf", "SDf"));
+
+interface BasicData {
+  name: "John Doe";
+  address: "123 Main St";
+  phone: "555-555-5555";
+}
+const basicData: BasicData = {
+  name: "John Doe",
+  address: "123 Main St",
+  phone: "555-555-5555",
+};
+const totalElement = (object: BasicData): string => {
+  let result = liTags(aTags(`${object.name}`, object.name));
   return result;
 };
 root.innerHTML = `
 <ul>
 <li>
-${totalElement()}</li>
+${totalElement(basicData)}</li>
 </li>
 </ul>`;
