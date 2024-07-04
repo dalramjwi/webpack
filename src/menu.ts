@@ -2,7 +2,7 @@ const root = document.getElementById("root")!;
 console.log(root);
 
 const aTags = (address: string, text: string) => {
-  let result = `<a href = ${address}>${text}</a>`;
+  let result = `<a href = #${address}>${text}</a>`;
   return result;
 };
 const liTags = (children: string) => {
@@ -31,7 +31,11 @@ const totalElement = (object: BasicData): string => {
 };
 root.innerHTML = `
 <ul>
-<li>
 ${totalElement(basicData)}</li>
-</li>
+<main id="main-target"></main>
 </ul>`;
+const mainTarget = document.getElementById("main-target")!;
+console.log(window.location.hash);
+window.addEventListener("hashchange", () => {
+  mainTarget.innerHTML = basicData.name;
+});

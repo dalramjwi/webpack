@@ -3,7 +3,7 @@
 var root = document.getElementById("root");
 console.log(root);
 var aTags = function aTags(address, text) {
-  var result = "<a href = ".concat(address, ">").concat(text, "</a>");
+  var result = "<a href = #".concat(address, ">").concat(text, "</a>");
   return result;
 };
 var liTags = function liTags(children) {
@@ -24,4 +24,9 @@ var totalElement = function totalElement(object) {
   }
   return result;
 };
-root.innerHTML = "\n<ul>\n<li>\n".concat(totalElement(basicData), "</li>\n</li>\n</ul>");
+root.innerHTML = "\n<ul>\n".concat(totalElement(basicData), "</li>\n<main id=\"main-target\"></main>\n</ul>");
+var mainTarget = document.getElementById("main-target");
+console.log(window.location.hash);
+window.addEventListener("hashchange", function () {
+  mainTarget.innerHTML = basicData.name;
+});
