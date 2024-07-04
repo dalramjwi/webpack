@@ -9,9 +9,13 @@ const liTags = (children: string) => {
   let result = `<li>${children}</li>`;
   return result;
 };
+const totalElement = () => {
+  let result = liTags(aTags("sdf", "SDf"));
+  return result;
+};
 root.innerHTML = `
 <ul>
 <li>
-${liTags(aTags("#", "안녕"))}</li>
+${totalElement()}</li>
 </li>
 </ul>`;
