@@ -1,7 +1,10 @@
 const root = document.getElementById("root")!;
 console.log(root);
-const aTags = () => {
-  let result = `<a href = "#">메뉴</a>`;
+const address = (address: string) => {
+  return address;
+};
+const aTags = (address: string) => {
+  let result = `<a href = ${address}>메뉴</a>`;
   return result;
 };
 const liTags = (children: string) => {
@@ -11,6 +14,6 @@ const liTags = (children: string) => {
 root.innerHTML = `
 <ul>
 <li>
-${liTags(aTags())}</li>
+${liTags(aTags(address("#")))}</li>
 </li>
 </ul>`;

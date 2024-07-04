@@ -2,8 +2,15 @@
 
 var root = document.getElementById("root");
 console.log(root);
-var liTags = function liTags() {
-  var result = "<li>\uBAA9\uB85D</li>";
+var address = function address(_address) {
+  return _address;
+};
+var aTags = function aTags(address) {
+  var result = "<a href = ".concat(address, ">\uBA54\uB274</a>");
   return result;
 };
-root.innerHTML = "\n<ul>\n<li>\n".concat(liTags(), "\n</li>\n</ul>");
+var liTags = function liTags(children) {
+  var result = "<li>".concat(children, "</li>");
+  return result;
+};
+root.innerHTML = "\n<ul>\n<li>\n".concat(liTags(aTags(address("#"))), "</li>\n</li>\n</ul>");
